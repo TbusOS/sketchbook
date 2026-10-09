@@ -1,0 +1,10 @@
+sketchbook — third-party material
+
+Fonts (SIL Open Font License 1.1):
+  - LXGW WenKai GB Screen — subsets embedded in art/*.svg and the web page
+    https://github.com/lxgw/LxgwWenKai-Screen
+  - JetBrains Mono — fonts/jetbrains-mono-latin.woff2   https://github.com/JetBrains/JetBrainsMono
+  - Lora — fonts/lora-latin.woff2, fonts/lora-italic-latin.woff2   https://github.com/cyrealtype/Lora-Cyrillic
+
+Code (MIT): vendor/graphite/ is copied from https://github.com/TbusOS/sky-skills
+  (see vendor/graphite/SOURCE and vendor/graphite/LICENSE-sky-skills).
