@@ -85,4 +85,4 @@ npm run build && npm run check && npm test
 | 日期 | 做了什么 | commit |
 |---|---|---|
 | 2026-10-10 | 阶段 0–2 全部,阶段 3 的本机部分 | `69bbfb7` |
-| 2026-10-10 | LICENSE 修正;Pages 部署权限;主页 README | `本次` / TbusOS `e03059a` |
+| 2026-10-10 | LICENSE 修正;Pages 部署权限;主页 README | `64a5b0c` / TbusOS `e03059a` |
