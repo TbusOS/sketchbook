@@ -4,7 +4,7 @@
 > 写上日期和 commit。设计理由在 [`DESIGN.md`](DESIGN.md),本机环境在 [`DEVELOP.md`](DEVELOP.md)。
 >
 > 状态行(每次停下前更新):
-> **2026-10-10 · v1 已上线**(README、网页 https://doc.tbusos.com/sketchbook/ 、GitHub 主页)。下一步见文末「待办」和 v2
+> **2026-10-10 05:20 · v1 已上线,分享预览图已上传**。下一步:按「待办」的顺序做;第 2 组要 user 同意才动(改的是别的仓库)
 
 ## 怎么接着做
 
@@ -61,24 +61,39 @@ npm run build && npm run check && npm test
 - [x] 生成 `profile/README.md`(图片引用 sketchbook 网页上的文件)
 - [x] 推到 `TbusOS/TbusOS`(`e03059a`),截图确认。注意:GitHub 图片代理第一次抓图可能超时、显示裂图,刷新一次就好
 
-## 待办(需要人手动,或要 user 决定)
+## 待办(按顺序做;2026-10-10 05:20 用 GitHub 接口核对过状态)
 
-- [ ] 上传 `art/social-preview.png`:仓库 Settings → General → Social preview(GitHub 没有接口)
-- [ ] GitHub 主页置顶 6 个精选仓库(同样没有接口)
-- [ ] 6 个仓库的 homepage 填的是 `http://`:sky-skills、engram、android-llm-bridge、claude-code-memory-checkpoint、ai-doc、Helix。
-      生成时已自动改成 https,但仓库页右上角显示的还是 http,建议在各仓库设置里改掉
-- [ ] `vim-ide-enhanced` 的 homepage 填成了 CodeMetrics 的地址
-- [ ] 收录的仓库里 7 个没有许可证:ai-doc、SkymOS、openwrt-tools、memcode、mlx-pager、cursor-memory-server、whetstone-curator;
-      Helix、clangd-kernel-helper 的许可证 GitHub 认不出(NOASSERTION)。没有许可证,别人不敢拿去用
-- [ ] Actions 警告:几个官方 action 还是 Node 20(GitHub 现在强制用 Node 24 跑,结果不受影响);
-      `ubuntu-latest` 2026-10-19 起换成 Ubuntu 26。升级 action 版本前先查各自的 release 说明,别凭印象改版本号
+### 1 · user 在网页上手动做(GitHub 没有接口)
 
-## 下一版(v2,已和 user 约定先不做)
+- [x] 上传 `art/social-preview.png` 为仓库 Social preview —— 2026-10-10 user 已上传,
+      接口确认 `usesCustomOpenGraphImage: true`
+- [ ] 换主页置顶:现在是 `battery-historian`(fork 自 google/battery-historian)和 `openwrt-tools`;
+      建议换成 sketchbook + 5 个精选(最多 6 个)
 
-- [ ] 33 个成员仓库 README 底部加一行「看 TbusOS 的全部项目 →」
-- [ ] 每个仓库一张 1200×630 分享图(发微信 / X 用)
-- [ ] 20 秒左右的汇总短视频(graphite 的 `export.mjs` 逐帧导出)
-- [ ] 手动:上传 `art/social-preview.png` 为仓库 Social preview;主页置顶 6 个仓库
+### 2 · 我来做,但改的是别的仓库,先等 user 同意
+
+- [ ] 主页地址改正(每个一条 `gh repo edit --homepage`,改错能改回):
+      6 个 `http://` → `https://`:sky-skills、engram、android-llm-bridge、claude-code-memory-checkpoint、ai-doc、Helix;
+      `vim-ide-enhanced` 现在填的是 CodeMetrics 的地址。汇总页已自动用 https,但各仓库页右上角仍是错的
+- [ ] 补许可证(等 user 定种类,建议 MIT,和其他仓库一致):
+      没有许可证的 7 个:ai-doc、SkymOS、openwrt-tools、memcode、mlx-pager、cursor-memory-server、whetstone-curator;
+      GitHub 认不出的 2 个(NOASSERTION):Helix、clangd-kernel-helper,先看它们的 LICENSE 文件哪里不标准
+- [ ] 33 个成员仓库 README 底部加一行「看 TbusOS 的全部项目 →」(33 次提交;访客从任何一个仓库进来都能看到其他项目)
+
+### 3 · 让更多人看到(拿 star 靠这一组)
+
+- [ ] awesome 列表投稿,先写草稿给 user 挑:awesome-claude-code(sky-skills、whetstone、
+      claude-code-memory-checkpoint、sky-claude-hud)、awesome-mcp-servers(android-llm-bridge、memcode)。
+      向别人的仓库提 PR 属于对外公开,要 user 定
+- [ ] 每个仓库一张 1200×630 分享图(发微信、朋友圈、V2EX、掘金、X)
+- [ ] 20 秒左右的汇总短视频(graphite 的 `export.mjs` 逐帧导出,素材已有)
+
+### 4 · 维护
+
+- [ ] 确认第一次定时更新跑成功:2026-10-10 01:17 UTC(北京时间 09:17)。之前两次是推送和手动触发
+- [ ] `runs-on` 固定成 `ubuntu-24.04`:`ubuntu-latest` 2026-10-19 起换成 Ubuntu 26,固定一行避免那天出意外
+- [ ] Actions 的 Node 20 警告:GitHub 现在强制用 Node 24 跑,结果不受影响;
+      升级 action 版本前先查各自的 release 说明,别凭印象改版本号
 
 ## 记录
 
@@ -86,3 +101,4 @@ npm run build && npm run check && npm test
 |---|---|---|
 | 2026-10-10 | 阶段 0–2 全部,阶段 3 的本机部分 | `69bbfb7` |
 | 2026-10-10 | LICENSE 修正;Pages 部署权限;主页 README | `64a5b0c` / TbusOS `e03059a` |
+| 2026-10-10 | user 上传分享预览图;待办按 4 组重排 | 提交标题「docs: PLAN 记分享预览图已上传,待办按 4 组重排」 |
