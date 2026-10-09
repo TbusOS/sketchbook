@@ -1,0 +1,8 @@
+These files are copied unchanged from sky-skills (MIT):
+  repo:    https://github.com/TbusOS/sky-skills
+  commit:  99b234c  (graphite-design: 图例库一行一张图)
+  path:    skills/graphite-design/assets/{sketch.js,props.js,graphite.css,player.js}
+
+To update: export the same paths from a newer sky-skills commit, copy them here,
+change the commit above, then run `npm run build` and look at the pictures.
+Do not edit these files in place — fix upstream in sky-skills and copy again.

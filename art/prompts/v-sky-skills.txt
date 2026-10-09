@@ -1,0 +1,10 @@
+Attached image 1 is the STYLE REFERENCE (drawing technique only: soft graphite pencil lines with slight texture, warm cream paper, sparse coloured-pencil fills, friendly rounded figures, lots of empty paper). Attached image 2 is an approved illustration from the SAME SERIES; keep its two characters (the young woman with a hair bun in a soft blue sweater, the small round light-grey robot with a dome head, two dot eyes and an orange antenna ball) and its pencil style. Do not copy either composition.
+
+Use your image generation tool to create ONE wide 16:9 illustration (1672x941 or similar):
+- A small workshop wall: a pegboard with about a dozen different small tools hanging on hooks, each one different (a ruler, a compass, a magnifying glass, two brushes, a small wrench, a set square, a few coloured pencils, a tiny screwdriver).
+- The robot stands on a wooden stool in front of the pegboard, reaching up to take one tool with an orange handle off its hook.
+- The young woman stands beside the stool, pointing at that tool and smiling, as if saying 'that one'.
+- Colour budget: cream paper, graphite lines, orange only on the chosen tool and the antenna ball, blue only on the sweater, the other tools in graphite with at most two soft muted tints, light wood for the stool and pegboard frame.
+- Keep the main action in the middle 80 % of the width; leave calm empty paper near all four edges (the picture will be cropped a little).
+- Absolutely no text, letters, digits, logos, UI or watermark anywhere.
+Save the PNG in the current directory as v-sky-skills-v1.png and reply with only its path and pixel size.

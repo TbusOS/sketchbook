@@ -1,0 +1,10 @@
+Attached image 1 is the STYLE REFERENCE (drawing technique only: soft graphite pencil lines with slight texture, warm cream paper, sparse coloured-pencil fills, friendly rounded figures, lots of empty paper). Attached image 2 is an approved illustration from the SAME SERIES; keep its two characters (the young woman with a hair bun in a soft blue sweater, the small round light-grey robot with a dome head, two dot eyes and an orange antenna ball) and its pencil style. Do not copy either composition.
+
+Use your image generation tool to create ONE wide 16:9 illustration (1672x941 or similar):
+- A long sheet of paper is unrolled across a table and hangs over its edge. On it, a clean hand-drawn flow chart: about ten rounded boxes connected by arrows that branch and join again (no writing inside the boxes).
+- The robot walks along the paper, tracing one path through the boxes with an orange marker; the traced path is orange.
+- The young woman bends over the paper, looking at the flow through a big magnifying glass, delighted.
+- Colour budget: cream paper, graphite lines, orange only on the traced path, the marker and the antenna ball, blue only on the sweater.
+- Keep the main action in the middle 80 % of the width; leave calm empty paper near all four edges (the picture will be cropped a little).
+- Absolutely no text, letters, digits, logos, UI or watermark anywhere.
+Save the PNG in the current directory as v-flowsight-v1.png and reply with only its path and pixel size.

@@ -1,0 +1,11 @@
+Attached image 1 is the STYLE REFERENCE (drawing technique only: soft graphite pencil lines with slight texture, warm cream paper, sparse coloured-pencil fills, friendly rounded figures, lots of empty paper). Attached image 2 is an approved illustration from the SAME SERIES; keep its two characters (the young woman with a hair bun in a soft blue sweater, the small round light-grey robot with a dome head, two dot eyes and an orange antenna ball) and its pencil style. Do not copy either composition.
+
+Use your image generation tool to create ONE wide 16:9 illustration (1672x941 or similar):
+- On a desk: an open laptop on the left, a smartphone propped up on a small stand in the middle, and a small bare circuit board on the right. Cables run from the laptop to the phone and to the board; the board's cable is a thin three-wire serial cable.
+- The robot sits on top of the laptop holding the cables in both hands like it is listening to them, looking at the phone.
+- The young woman, chin on hand, watches the phone screen with interest.
+- The phone screen is a flat soft green rectangle with nothing on it.
+- Colour budget: cream paper, graphite lines, green only on the phone screen, orange only on the antenna ball, blue only on the sweater, a touch of muted teal on the circuit board.
+- Keep the main action in the middle 80 % of the width; leave calm empty paper near all four edges (the picture will be cropped a little).
+- Absolutely no text, letters, digits, logos, UI or watermark anywhere.
+Save the PNG in the current directory as v-android-llm-bridge-v1.png and reply with only its path and pixel size.

@@ -1,0 +1,110 @@
+// readme.mjs — README.md (English) and README_zh.md (Chinese) from the model.
+//
+// Pictures come in light and dark files; <picture> lets GitHub pick the one that
+// matches the reader's theme. Everything a reader needs is also plain text in the
+// tables, because GitHub shrinks pictures on a phone until the words in them
+// are too small to read.
+
+const T = {
+  en: {
+    other: '[中文](README_zh.md)', open: 'Open the sketchbook →',
+    line: s => `<b>${s.projects} open-source projects</b> by <a href="https://github.com/TbusOS">TbusOS</a> · ${s.commits.toLocaleString('en')} commits · ${s.languages} languages`,
+    tagline: 'AI agent tooling · Linux kernel &amp; embedded · learning and running LLMs',
+    featured: 'Featured', shelf: 'The shelf', all: 'All projects', earlier: 'Earlier work', fresh: 'New on the shelf',
+    freshNote: 'Public repositories that are not in `catalog.yaml` yet. They show their GitHub description until someone writes an entry.',
+    starNote: 'If one of these saves you time, a ★ on its repository helps other people find it.',
+    shelfNote: 'One book per project: thicker means more commits, colour is the group, ★ marks the featured six. Click to open the interactive version.',
+    head: ['Project', 'What it does', 'Activity', 'Demo'],
+    status: { stable: 'stable', wip: 'in progress', archive: 'archived', '': '' },
+    commits: n => `${n} commit${n === 1 ? '' : 's'}`, demo: 'live ↗',
+    how: 'How this list is built',
+    howBody: s => [
+      '- **`catalog.yaml`** — written by hand: the groups, one sentence per project, which six are featured.',
+      '- **`data/repos.json`** — fetched from the GitHub API every day: commits, last commit, language, licence, homepage.',
+      '- **`scripts/build.mjs`** — draws every picture on this page and writes both READMEs and the [web page](' + s.site + ').',
+      '- **[A daily GitHub Action](.github/workflows/refresh.yml)** runs the three steps above. A new public repository shows up under "New on the shelf" the next day, and an issue reminds us to describe it.',
+      '',
+      'The desk scene and the six card pictures were drawn by an image model (prompts in [`art/prompts/`](art/prompts/)). Everything else — lines, handwriting, icons, the shelf — is drawn by code, stroke by stroke, in the [graphite style from sky-skills](https://github.com/TbusOS/sky-skills). Plans and progress: [`docs/PLAN.md`](docs/PLAN.md).',
+    ],
+    license: 'Code is MIT. Fonts are OFL 1.1: LXGW WenKai GB Screen, JetBrains Mono, Lora.',
+  },
+  zh: {
+    other: '[English](README.md)', open: '打开速写本 →',
+    line: s => `<a href="https://github.com/TbusOS">TbusOS</a> 的 <b>${s.projects} 个开源项目</b> · ${s.commits} 次提交 · ${s.languages} 种语言`,
+    tagline: 'AI Agent 工具 · Linux 内核与嵌入式 · 大模型学习与部署',
+    featured: '精选', shelf: '书架', all: '全部项目', earlier: '早期作品', fresh: '新上架',
+    freshNote: '还没写进 `catalog.yaml` 的公开仓库,先显示它在 GitHub 上的描述。',
+    starNote: '如果其中哪个帮你省了时间,去它的仓库点个 ★,能让更多人看到它。',
+    shelfNote: '每本书是一个项目:书越厚提交越多,颜色是分组,★ 是精选的 6 个。点图打开能交互的网页版。',
+    head: ['项目', '做什么', '活跃度', '演示'],
+    status: { stable: '可用', wip: '在做', archive: '已归档', '': '' },
+    commits: n => `${n} 次提交`, demo: '在线 ↗',
+    how: '这份列表怎么来的',
+    howBody: s => [
+      '- **`catalog.yaml`**:手写,包括分组、每个项目的一句话介绍、精选哪 6 个。',
+      '- **`data/repos.json`**:每天从 GitHub API 拉取,包括提交数、最近一次提交、语言、许可证、主页。',
+      '- **`scripts/build.mjs`**:画出本页所有的图,生成两份 README 和[网页版](' + s.site + ')。',
+      '- **[每天跑一次的 GitHub Action](.github/workflows/refresh.yml)** 依次执行上面三步。新开的公开仓库第二天就会出现在「新上架」里,同时开一个 issue 提醒补介绍。',
+      '',
+      '桌面场景和 6 张卡片配图由出图模型画(提示词在 [`art/prompts/`](art/prompts/));其余的线条、手写字、图标、书架都由代码按顺序一笔一笔画出来,画风来自 [sky-skills 的 graphite](https://github.com/TbusOS/sky-skills)。计划和进度见 [`docs/PLAN.md`](docs/PLAN.md)。',
+    ],
+    license: '代码采用 MIT 许可证;字体采用 OFL 1.1 许可证,包括霞鹜文楷 GB 屏幕阅读版、JetBrains Mono、Lora。',
+  },
+};
+
+function pic(base, alt, width) {
+  return `<picture><source media="(prefers-color-scheme: dark)" srcset="${base}-dark.svg"><img src="${base}-light.svg" alt="${alt}"${width ? ` width="${width}"` : ''}></picture>`;
+}
+const cell = s => String(s).replace(/\|/g, '\\|').replace(/\n/g, ' ');
+
+function row(r, lang) {
+  const t = T[lang];
+  const sub = [r.language, t.status[r.status]].filter(Boolean).join(' · ');
+  const name = `**[${r.name}](${r.url})**${sub ? `<br><sub>${sub}</sub>` : ''}`;
+  const act = `${t.commits(r.commits)}<br><sub>${r.month}${r.showStars ? ` · ★ ${r.stars}` : ''}</sub>`;
+  return `| ${name} | ${cell(lang === 'zh' ? r.zh : r.en)} | ${act} | ${r.demo ? `[${t.demo}](${r.demo})` : ''} |`;
+}
+
+function table(repos, lang) {
+  const h = T[lang].head;
+  return [`| ${h.join(' | ')} |`, '|---|---|---|---|', ...repos.map(r => row(r, lang))].join('\n');
+}
+
+export function readme(model, lang) {
+  const t = T[lang], s = model.stats;
+  const site = lang === 'zh' ? `${model.site}?lang=zh` : model.site;
+  const out = [];
+  out.push(`<!-- Generated by scripts/build.mjs from catalog.yaml and data/repos.json. Edit those, not this file. -->`);
+  out.push(`<p align="center"><a href="${site}">${pic(`art/banner-${lang}`, lang === 'zh' ? `TbusOS 速写本:${s.projects} 个开源项目` : `TbusOS sketchbook: ${s.projects} open-source projects`, '100%')}</a></p>`);
+  out.push('');
+  out.push(`<p align="center">${t.line(s)}<br>${t.tagline}</p>`);
+  out.push(`<p align="center"><a href="${site}"><b>${t.open}</b></a> · ${t.other.replace(/\[(.*)\]\((.*)\)/, '<a href="$2">$1</a>')}</p>`);
+  out.push('');
+  out.push(`## ${t.featured}`, '');
+  out.push('<p align="center">');
+  model.featured.forEach((r, i) => {
+    out.push(`<a href="${r.url}">${pic(`art/card-${r.name}-${lang}`, `${r.name}: ${lang === 'zh' ? r.zh : r.en}`, '49%')}</a>${i % 2 ? '<br>' : ''}`);
+  });
+  out.push('</p>', '');
+  out.push(`<p align="center"><sub>${t.starNote}</sub></p>`, '');
+  out.push(`## ${t.shelf}`, '');
+  out.push(`<a href="${site}#shelf">${pic(`art/shelf-${lang}`, t.shelfNote, '100%')}</a>`, '');
+  out.push(`<sub>${t.shelfNote}</sub>`, '');
+  out.push(`## ${t.all}`, '');
+  for (const g of model.groups) {
+    if (!g.repos.length) continue;
+    out.push(`### ${lang === 'zh' ? g.zh : g.en}`, '');
+    const blurb = lang === 'zh' ? g.blurb_zh : g.blurb_en;
+    if (blurb) out.push(blurb, '');
+    out.push(table(g.repos, lang), '');
+  }
+  if (model.fresh.length) {
+    out.push(`### ${t.fresh}`, '', t.freshNote, '', table(model.fresh, lang), '');
+  }
+  if (model.archive.length) {
+    out.push(`<details><summary><b>${t.earlier}</b> (${model.archive.length})</summary>`, '', table(model.archive, lang), '', '</details>', '');
+  }
+  out.push(`## ${t.how}`, '', ...t.howBody({ site }), '');
+  out.push('---', '', `<sub>${t.license}</sub>`, '');
+  return out.join('\n');
+}

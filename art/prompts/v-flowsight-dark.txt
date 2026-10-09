@@ -1,0 +1,7 @@
+The attached image is the light version of an illustration. Use your image generation tool to create its NIGHT / DARK-MODE version: the exact same drawing, same composition, same characters and objects in the same positions and sizes. Only the lighting and palette change:
+- Evening; one small warm lamp glow is the only light. The background becomes a deep navy-ink paper (around #141a26) with the same subtle pencil texture.
+- Lines become soft light-grey chalk / pencil lines.
+- The woman keeps a light, friendly face and her soft blue sweater; the robot stays light grey with its orange antenna ball.
+- Keep the same few accent colours on the same objects, slightly glowing against the dark paper.
+- Absolutely no text, letters, digits, logos, UI or watermark anywhere.
+Save the PNG in the current directory as v-flowsight-dark-v1.png and reply with only its path and pixel size.

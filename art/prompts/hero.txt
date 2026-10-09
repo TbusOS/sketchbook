@@ -1,0 +1,11 @@
+Attached image 1 is the STYLE REFERENCE (drawing technique only: soft graphite pencil lines with slight texture, warm cream paper, sparse coloured-pencil fills, friendly rounded figures, lots of empty paper). It also shows the two characters of this series: a young woman with a hair bun in a soft blue sweater, and a small round light-grey robot (simple dome head, two dot eyes, a little antenna with an orange ball). Keep these two characters and this pencil style. Do not copy its composition.
+
+Use your image generation tool to create ONE very wide illustration, 21:9 widescreen framing (for example 1916x821):
+- Seen from slightly above and in front: a large open spiral-bound sketchbook lying flat on a light wooden desk, filling the centre of the frame (about 55 % of the width). Both pages are flat, evenly lit, very light cream rectangles with NOTHING drawn on them (a web page will draw a title on the left page and small icons on the right page later). Keep the page edges clean and the spiral binding simple.
+- The small robot sits on the top edge of the sketchbook next to the spiral binding, holding a big orange pencil upright like a flag, looking pleased.
+- On the left, outside the sketchbook, the young woman leans on the desk with her chin on one hand, smiling at the book; a mug of coffee near her elbow.
+- Around the book, small desk things as quick pencil sketches, none of them overlapping the pages: an open tin of coloured pencils (right), a smartphone with a cable, two loose sheets of paper with a paper clip, an eraser, a small potted plant at the far right.
+- Keep the top band of the image (about 12 %) as plain empty paper.
+- Colour budget: cream paper, graphite lines, orange only on the robot's pencil and antenna ball, blue only on the woman's sweater, green only on the plant, light wood tone for the desk, a few muted colours on the pencils in the tin.
+- Absolutely no text, letters, digits, logos, UI or watermark anywhere — both pages of the sketchbook must stay blank.
+Save the PNG in the current directory as hero-v1.png and reply with only its path and pixel size.

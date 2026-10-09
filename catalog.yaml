@@ -1,0 +1,273 @@
+# catalog.yaml — the hand-written half of sketchbook.
+#
+# The other half, data/repos.json, comes from the GitHub API (scripts/fetch.mjs):
+# commits, last push, language, licence, homepage, topics, stars. Nothing here is
+# overwritten by the daily refresh.
+#
+# Who gets in (scripts/lib/model.mjs, same rule every day):
+#   - public, not a fork, owned by `owner`
+#   - listed under `exclude` → never shown
+#   - topic `sandbox`        → never shown
+#   - topic `status-archive` → the "earlier work" section (or listed under `archive`)
+#   - listed under `repos`   → its group, with the text below
+#   - anything else          → "new on the shelf", with its GitHub description,
+#                              until someone writes an entry for it here
+#
+# Text rules: `en` / `zh` are one sentence each, saying what the project does for
+# the reader (not what it is built with). `hook_*` are only for featured cards:
+# eight words at most, because they are drawn into an image that shrinks on phones.
+
+owner: TbusOS
+site: https://doc.tbusos.com/sketchbook/
+blog: https://doc.tbusos.com/
+star_threshold: 10   # star counts appear only once a repo has at least this many
+
+featured: [sky-skills, android-llm-bridge, ai-doc, whetstone, engram, flowsight]
+
+groups:
+  - id: skills
+    en: Skills & memory for AI agents
+    zh: AI Agent 的技能与记忆
+    blurb_en: Teach a coding agent once and keep what it learned — as skills it can load, or as plain-markdown memory you own.
+    blurb_zh: 教会编程 Agent 的东西留下来:做成它能加载的 skill,或者存成你自己掌握的 markdown 记忆。
+    pen: orange
+  - id: bridges
+    en: Agents on real machines
+    zh: 让 Agent 操作真机器
+    blurb_en: Let an LLM agent drive an Android phone, a Windows host or a desktop app, and get structured results back.
+    blurb_zh: 让大模型 Agent 直接操作安卓手机、Windows 主机和桌面应用,拿回结构化的结果。
+    pen: green
+  - id: claude
+    en: Claude Code companions
+    zh: Claude Code 周边
+    blurb_en: A statusline, crash protection, a network monitor, and one-page views of your repos and sessions.
+    blurb_zh: 状态栏、防崩溃的 hook、出网监控,还有把仓库和会话记录整理成一页的工具。
+    pen: violet
+  - id: llm
+    en: Learning & running LLMs
+    zh: 大模型学习与本地部署
+    blurb_en: Papers explained, a build-it-yourself course, and tools for running and training models on your own machine.
+    blurb_zh: 论文解读、动手学大模型的教程,以及在自己机器上跑模型、训模型的工具。
+    pen: yellow
+  - id: kernel
+    en: Linux kernel, drivers & embedded
+    zh: Linux 内核 · 驱动 · 嵌入式
+    blurb_en: Call-flow tracing, Kconfig checks, CVE patching and study material for people who work below userspace.
+    blurb_zh: 调用流追踪、Kconfig 检查、CVE 补丁,以及写内核和驱动用的学习资料。
+    pen: blue
+  - id: devtools
+    en: Everyday developer tools
+    zh: 日常开发工具
+    blurb_en: Code metrics, Markdown to PDF, and a Vim that behaves like an IDE.
+    blurb_zh: 代码度量、Markdown 转 PDF、把 Vim 配成 IDE。
+    pen: grey
+
+repos:
+  # ── skills ──────────────────────────────────────────────────────────────
+  sky-skills:
+    group: skills
+    icon: pencils
+    en: Claude Code skills for design, kernel work, workflows and review — eleven page styles, each with a live demo.
+    zh: 给 Claude Code 用的技能库:设计、内核、工作流、评审,十一种页面画风各有在线演示。
+    hook_en: Skills that turn Claude Code into an expert
+    hook_zh: 让 Claude Code 变成行家的技能库
+  whetstone:
+    group: skills
+    icon: whetstone
+    en: Distill a dev session into a portable Agent Skill, then check it against evidence rules you can run.
+    zh: 把一次开发会话提炼成可移植的 Agent Skill,再用能执行的证据规则检查它。
+    hook_en: Every lesson has to show its evidence
+    hook_zh: 每条经验都要拿出证据
+  whetstone-curator:
+    group: skills
+    icon: books
+    en: The team side of whetstone — pick the right lessons from teammates' libraries, or gather everyone's into one.
+    zh: whetstone 的团队版:从队友的库里挑出好经验,或把全队的经验收进一个库。
+  engram:
+    group: skills
+    icon: cards
+    en: Local, model-agnostic memory kept as plain markdown on your disk — any LLM can read it, and it keeps its own quality up.
+    zh: 存在本地磁盘上的 markdown 记忆,哪个模型都能直接读,还会自己维护内容质量。
+    hook_en: Memory on your disk, not inside a tool
+    hook_zh: 记忆存在你的磁盘上,不归任何工具
+  proofmark:
+    group: skills
+    icon: palette
+    en: Nine design languages a coding agent can write in, plus a check that fails any page that doesn't match.
+    zh: 九套编程 Agent 能照着写的设计语言,加一道不合格就报错的检查。
+  cursor-memory-server:
+    group: skills
+    icon: bulb
+    en: Persistent memory for Cursor — hooks plus MCP, recalled at the start of each session, global and per project.
+    zh: 给 Cursor 的持久记忆:hook 加 MCP,会话一开始就自动想起,分全局和项目两层。
+  llm-wiki:
+    group: skills
+    icon: doc
+    en: Let an LLM compile your sources into a cross-linked markdown wiki and keep it up to date, Karpathy-style.
+    zh: 让大模型把你的资料编成一套互相链接的 markdown wiki,并持续维护(Karpathy 的做法)。
+  astock-lab:
+    group: skills
+    icon: chart
+    en: An A-share stock research bench — 13 free tools and 3 Agent Skills that teach the AI how to reason, not just fetch data.
+    zh: A 股个股分析工作台:13 个免费工具 + 3 个 Agent Skill,教 AI 怎么分析,不只是取数。
+
+  # ── bridges ─────────────────────────────────────────────────────────────
+  android-llm-bridge:
+    group: bridges
+    icon: phone
+    en: Let an LLM agent debug a real Android device over adb, ssh or UART — through MCP, a CLI or a web API.
+    zh: 让大模型 Agent 直接调试真安卓设备:adb / ssh / UART 都行,走 MCP、命令行或 Web API。
+    hook_en: Your agent, debugging a real Android device
+    hook_zh: 让 Agent 直接调试真手机
+  windows-llm-bridge:
+    group: bridges
+    icon: monitor
+    en: Drive a Windows host like a function call — cmd, PowerShell, file transfer and vendor tools, with structured results.
+    zh: 让 Agent 像调函数一样驱动 Windows 主机:跑 cmd / PowerShell、传文件、调厂商工具。
+  DeskPilot:
+    group: bridges
+    icon: laptop
+    en: Test automation for Tauri and Electron apps — DOM tests first, a vision model only when a selector breaks.
+    zh: Tauri / Electron 桌面应用的自动化测试:先走 DOM,选择器失效时才用视觉模型。
+
+  # ── claude ──────────────────────────────────────────────────────────────
+  repo-atlas:
+    group: claude
+    icon: map
+    en: Catalog every repo in your workspace — one HTML page for people, one compact index for AI agents.
+    zh: 给工作区里的每个仓库编目:一页给人看的 HTML,一份给 AI 用的精简索引。
+  work-atlas:
+    group: claude
+    icon: clock
+    en: Rebuild what you actually worked on from your Claude Code sessions, and compare it with what you planned.
+    zh: 从 Claude Code 会话里还原你实际做了什么,再跟计划对照,放在一页上看。
+  claude-egress-monitor:
+    group: claude
+    icon: cloud
+    en: See where Claude Code, the desktop app and the browser really leave your machine — exit IP, region, telemetry, latency.
+    zh: 看清 Claude Code、桌面端、浏览器各自从哪个 IP 出网、遥测发往哪里、每段延迟多少。
+  claude-code-memory-checkpoint:
+    group: claude
+    icon: save
+    en: Three hooks that keep long Claude Code sessions safe from crashes, auto-compact and /clear.
+    zh: 三个 hook,让长时间的 Claude Code 会话扛得住崩溃、自动压缩和 /clear。
+  sky-claude-hud:
+    group: claude
+    icon: terminal
+    en: A two-line Claude Code statusline that works over SSH and in Xshell — pure Python, no GUI.
+    zh: 两行的 Claude Code 状态栏,SSH 和 Xshell 里也能用,只靠 Python 标准库。
+  memcode:
+    group: claude
+    icon: server
+    en: An MCP server that keeps a codebase in memory so Claude Code reads it faster, with live reload.
+    zh: 把代码库读进内存的 MCP 服务,让 Claude Code 读得更快,文件改了自动重载。
+
+  # ── llm ─────────────────────────────────────────────────────────────────
+  ai-doc:
+    group: llm
+    icon: papers
+    en: AI papers and articles worth reading, with Chinese translations and animated explainers you can step through.
+    zh: 值得读的 AI 论文和文章,带中文翻译,还有能一步步播放的动画图解。
+    hook_en: AI papers, translated and drawn out
+    hook_zh: AI 论文,翻译好,画明白
+  my-chat:
+    group: llm
+    icon: robot
+    en: Learn LLMs by building them — from running Ollama to training nanoGPT and writing your own tokenizer.
+    zh: 边做边学大模型:从跑通 Ollama 到训练 nanoGPT、自己写分词器。
+  Helix:
+    group: llm
+    icon: chat
+    en: Local multi-model chat — Ollama, LM Studio and llama.cpp behind one adapter, with group-chat modes and KV-cache monitoring.
+    zh: 本地多模型聊天平台:Ollama / LM Studio / llama.cpp 统一接入,支持群聊模式和 KV 缓存监控。
+  mlx-pager:
+    group: llm
+    icon: chip
+    en: OS-style memory paging for MLX on Apple Silicon — train a 27B model on a 24 GB Mac by paging to the SSD.
+    zh: 给 MLX 加上操作系统式的内存分页,拿 SSD 当内存扩展,在 24 GB 的 Mac 上训练 27B 模型。
+
+  # ── kernel ──────────────────────────────────────────────────────────────
+  flowsight:
+    group: kernel
+    icon: flow
+    en: A cross-platform IDE that draws the call flow of your code as it actually runs. Written in Rust.
+    zh: 跨平台执行流可视化 IDE,把代码运行时真实的调用流画出来,用 Rust 写成。
+    hook_en: See the call flow your code really takes
+    hook_zh: 把代码真实的调用流画出来
+  openwrt-tools:
+    group: kernel
+    icon: router
+    en: A toolchain for making OpenWrt kernel CVE patches — detect, adapt and merge patches, with help in English and Chinese.
+    zh: OpenWrt 内核 CVE 补丁制作工具链:检测、适配、合并补丁,中英文帮助。
+  kconform:
+    group: kernel
+    icon: checklist
+    en: Lint, verify, minimize and diff defconfigs across Kconfig projects — U-Boot, Linux, Buildroot and OpenWrt.
+    zh: Kconfig 类配置的检查工具:对 U-Boot / Linux / Buildroot / OpenWrt 的 defconfig 做检查、校验、精简和对比。
+  fptrace:
+    group: kernel
+    icon: pointer
+    en: Find out at run time which function a function pointer really points to, and print the call stack.
+    zh: 运行时查出函数指针到底指向哪个函数,并打出调用栈。
+  Linux-driver-analyzer:
+    group: kernel
+    icon: magnifier
+    en: Static analysis that untangles the call flow of a large Linux driver and draws it for you.
+    zh: 把几千上万行 Linux 驱动的函数调用流理出来、画成图的静态分析工具。
+  SkymOS:
+    group: kernel
+    icon: stairs
+    en: A teaching OS for ARM32, built stage by stage — from booting and printing over UART up to a small kernel.
+    zh: ARM32 教学操作系统,从启动和串口输出开始,一阶段一阶段搭出一个小内核。
+  usb-learn:
+    group: kernel
+    icon: usb
+    en: A study path for USB driver development — from the USB protocol to the Linux USB driver stack, with practice projects.
+    zh: USB 驱动开发学习路径:从 USB 协议讲到 Linux USB 驱动架构,配实践项目。
+  linux-kernel-security-oss:
+    group: kernel
+    icon: shield
+    en: Defensive security for vendor and Android arm64 kernels — known-CVE detection, config hardening and code audit.
+    zh: 面向厂商和安卓 arm64 内核的防御性安全工具:已知 CVE 检测、配置加固、代码审计。
+  clangd-kernel-helper:
+    group: kernel
+    icon: compass
+    en: Generate compile_commands.json for kernel driver work, so clangd can jump to definitions and complete code.
+    zh: 给内核驱动开发生成 compile_commands.json,让 clangd 能跳转定义、补全代码。
+
+  # ── devtools ────────────────────────────────────────────────────────────
+  CodeMetrics:
+    group: devtools
+    icon: ruler
+    en: Code metrics for 50+ languages — COCOMO estimates, health checks and reports in several formats, no dependencies.
+    zh: 支持 50 多种语言的代码度量:COCOMO 估算、健康度分析、多种报告格式,零依赖。
+  vim-ide-enhanced:
+    group: devtools
+    icon: keyboard
+    en: Turn Vim into a C/C++/Python IDE — 27 plugins, 9 themes and 60+ key bindings.
+    zh: 把 Vim 配成 C/C++/Python IDE:27 个插件、9 套主题、60 多个快捷键。
+  md-to-pdf:
+    group: devtools
+    icon: printer
+    en: Markdown to PDF with bookmarks and CJK fonts; merge several files into one bookmarked document.
+    zh: Markdown 转 PDF,自动生成书签、支持中文字体,多个文件能合成一份带书签的文档。
+
+archive:
+  TbusBuild:
+    icon: gear
+    en: An early build framework for Linux drivers and apps, on top of Buildroot.
+    zh: 早期做的 Linux 驱动与应用编译框架,基于 Buildroot。
+
+exclude:
+  TbusOS: the GitHub profile README itself
+  sketchbook: this repository
+  Tbus-test: a test repository
+  linux-analyzer: placeholder, no content yet
+  TbusDoc: empty
+  Tbus-opensource: code collected from elsewhere, not written here
+  blog: an unmodified Docsy site template
+  tbusos.github.io: the old blog site (linked in the footer instead)
+  TbusBlogDoc: backup of the old blog's posts and images
+  TbusUboot: README only
+  sky-claude-cli: no README yet
+  sky-debug-tools: README is still the empty template

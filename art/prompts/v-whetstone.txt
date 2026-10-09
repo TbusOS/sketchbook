@@ -1,0 +1,10 @@
+Attached image 1 is the STYLE REFERENCE (drawing technique only: soft graphite pencil lines with slight texture, warm cream paper, sparse coloured-pencil fills, friendly rounded figures, lots of empty paper). Attached image 2 is an approved illustration from the SAME SERIES; keep its two characters (the young woman with a hair bun in a soft blue sweater, the small round light-grey robot with a dome head, two dot eyes and an orange antenna ball) and its pencil style. Do not copy either composition.
+
+Use your image generation tool to create ONE wide 16:9 illustration (1672x941 or similar):
+- A kitchen-table workshop: a flat grey sharpening stone (whetstone) on a small wooden block, a few water drops on it, a jar of freshly sharpened pencils and a little pile of pencil shavings.
+- The robot carefully sharpens a pencil by sliding it along the whetstone, concentrating.
+- The young woman holds up a finished pencil and inspects its tip through a magnifying glass, one eyebrow raised, checking it carefully.
+- Colour budget: cream paper, graphite lines, orange only on the pencil bodies, blue only on the sweater and the water drops, cool grey for the stone.
+- Keep the main action in the middle 80 % of the width; leave calm empty paper near all four edges (the picture will be cropped a little).
+- Absolutely no text, letters, digits, logos, UI or watermark anywhere.
+Save the PNG in the current directory as v-whetstone-v1.png and reply with only its path and pixel size.

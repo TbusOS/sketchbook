@@ -1,0 +1,11 @@
+Attached image 1 is the STYLE REFERENCE (drawing technique only: soft graphite pencil lines with slight texture, warm cream paper, sparse coloured-pencil fills, friendly rounded figures, lots of empty paper). Attached image 2 is an approved illustration from the SAME SERIES; keep its two characters (the young woman with a hair bun in a soft blue sweater, the small round light-grey robot with a dome head, two dot eyes and an orange antenna ball) and its pencil style. Do not copy either composition.
+
+Use your image generation tool to create ONE wide 16:9 illustration (1672x941 or similar):
+- A tall wooden card-catalogue cabinet with many small drawers, like an old library catalogue. One drawer is pulled open, full of index cards.
+- The robot stands on a small step ladder, pulling one index card out of the open drawer and looking at it happily.
+- The young woman holds a fresh index card, about to file it into the same drawer. All cards are blank, nothing written on them.
+- A small potted plant sits on top of the cabinet.
+- Colour budget: cream paper, graphite lines, warm light wood for the cabinet, green only on the plant, orange only on the antenna ball, blue only on the sweater.
+- Keep the main action in the middle 80 % of the width; leave calm empty paper near all four edges (the picture will be cropped a little).
+- Absolutely no text, letters, digits, logos, UI or watermark anywhere.
+Save the PNG in the current directory as v-engram-v1.png and reply with only its path and pixel size.

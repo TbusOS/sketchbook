@@ -1,0 +1,11 @@
+Attached image 1 is the STYLE REFERENCE (drawing technique only: soft graphite pencil lines with slight texture, warm cream paper, sparse coloured-pencil fills, friendly rounded figures, lots of empty paper). Attached image 2 is an approved illustration from the SAME SERIES; keep its two characters (the young woman with a hair bun in a soft blue sweater, the small round light-grey robot with a dome head, two dot eyes and an orange antenna ball) and its pencil style. Do not copy either composition.
+
+Use your image generation tool to create ONE wide 16:9 illustration (1672x941 or similar):
+- A cosy reading corner in the daytime: an armchair, a window with soft daylight, and a tall stack of papers and thick books on the floor next to the chair.
+- The young woman sits in the armchair reading a paper, a pencil tucked behind her ear.
+- The robot stands on top of the book stack holding a big magnifying glass over an open paper, pointing at something on it, excited.
+- Small yellow sticky notes stick out of many of the pages (blank, nothing written on them).
+- Colour budget: cream paper, graphite lines, yellow only on the sticky notes, blue only on the sweater, orange only on the antenna ball, pale sky in the window.
+- Keep the main action in the middle 80 % of the width; leave calm empty paper near all four edges (the picture will be cropped a little).
+- Absolutely no text, letters, digits, logos, UI or watermark anywhere.
+Save the PNG in the current directory as v-ai-doc-v1.png and reply with only its path and pixel size.

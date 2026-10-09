@@ -1,0 +1,7 @@
+The attached image is the light version of an illustration. Use your image generation tool to create its NIGHT / DARK-MODE version: the exact same drawing, same composition, same objects in the same positions and sizes (the open spiral sketchbook, the robot with the big pencil on its top edge, the woman leaning on the desk with her mug, the pencil tin, the phone, the papers, the plant). Only the lighting and palette change:
+- Evening; one small warm desk-lamp glow from the left is the only light. The background becomes a deep navy-ink paper (around #141a26) with the same subtle pencil texture.
+- Lines become soft light-grey chalk / pencil lines.
+- The sketchbook keeps exactly the same position and size; both pages become flat, evenly dim, very dark slate-blue rectangles (around #1d2533) with NOTHING drawn on them.
+- The woman keeps a light, friendly face and her soft blue sweater; the robot is light grey with a touch of warm orange on the pencil and antenna ball.
+- Absolutely no text, letters, digits, logos, UI or watermark.
+Save the PNG in the current directory as hero-dark-v1.png and reply with only its path and pixel size.

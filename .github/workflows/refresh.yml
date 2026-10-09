@@ -1,0 +1,95 @@
+# Daily refresh: fetch repo data, redraw, commit if anything changed, publish the page.
+# Design notes: docs/DESIGN.md §6. A failed fetch stops the run before anything is
+# written, so yesterday's README and page stay online untouched.
+name: refresh
+
+on:
+  schedule:
+    - cron: "17 1 * * *"      # 01:17 UTC every day
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [catalog.yaml, "scripts/**", "web/**", "vendor/**", "art/source/**", "fonts/**", package.json, .github/workflows/refresh.yml]
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Hand font (26 MB, not in git) from cache or its release
+        uses: actions/cache@v4
+        with:
+          path: .cache/fonts
+          key: wenkai-gb-screen-v1.522
+
+      - run: npm ci --omit=dev
+
+      - name: Fetch repo data
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/fetch.mjs
+
+      - name: Draw and write
+        run: node scripts/build.mjs
+
+      - name: Check
+        run: node scripts/check.mjs && node --test test/*.test.mjs
+
+      - name: Commit if anything changed
+        run: |
+          if [ -n "$(git status --porcelain -- README.md README_zh.md art data profile)" ]; then
+            git config user.name "sketchbook-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md README_zh.md art data profile
+            git commit -m "chore: daily refresh $(date -u +%F)"
+            git push
+          else
+            echo "nothing changed"
+          fi
+
+      - name: Open an issue for repos not in catalog.yaml yet
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          fresh=$(node --input-type=module -e "import('./scripts/build.mjs').then(m => console.log(m.loadModel().fresh.map(r => r.name).join(' ')))")
+          if [ -n "$fresh" ]; then
+            open=$(gh issue list --state open --label new-repo --json number --jq 'length')
+            if [ "$open" = "0" ]; then
+              gh label create new-repo --color 7fb2e0 --description "public repo not in catalog.yaml yet" 2>/dev/null || true
+              body="These public repositories are on the shelf under \"New on the shelf\", with their GitHub description:"
+              for r in $fresh; do body="$body"$'\n'"- [ ] [$r](https://github.com/TbusOS/$r)"; done
+              body="$body"$'\n\n'"Add an entry for each to \`catalog.yaml\` (group, en, zh, icon) — or to \`exclude\` with a reason."
+              gh issue create --title "Describe new repos: $fresh" --label new-repo --body "$body"
+            fi
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
