@@ -4,7 +4,7 @@
 > 写上日期和 commit。设计理由在 [`DESIGN.md`](DESIGN.md),本机环境在 [`DEVELOP.md`](DEVELOP.md)。
 >
 > 状态行(每次停下前更新):
-> **2026-10-10 · v1 开发中 · 当前在阶段 3(上线):代码、图、文档都已完成,正在推送和打开 Pages**
+> **2026-10-10 · v1 已上线**(README、网页 https://doc.tbusos.com/sketchbook/ 、GitHub 主页)。下一步见文末「待办」和 v2
 
 ## 怎么接着做
 
@@ -49,17 +49,29 @@ npm run build && npm run check && npm test
 ## 阶段 3 · 上线
 
 - [x] 本机跑 `check_objective.mjs`(sky-skills),浅深两个主题 5 项全过
-- [ ] 用 playwright 截 GitHub 上 README 的图,浅深各看一遍
-- [x] `.github/workflows/refresh.yml`:每天更新 + 发布 Pages + 新上架开 issue(已写,未在 GitHub 上跑过)
-- [ ] 打开 Pages(`build_type=workflow`),确认 `https://doc.tbusos.com/sketchbook/` 能打开
-- [ ] 推 main,删掉临时分支 `render-test`
-- [ ] 仓库 topics、描述、主页地址
+- [x] 用 playwright 截 GitHub 上 README 的图,浅深各看一遍:字体、配图、动画都正常,0 张图加载失败
+- [x] `.github/workflows/refresh.yml`:每天更新 + 发布 Pages + 新上架开 issue。第一次跑:构建成功、部署被拒(`github-pages` 环境只允许当时的临时分支 `render-test`),加上 main 后重跑成功
+- [x] 打开 Pages(`build_type=workflow`),`https://doc.tbusos.com/sketchbook/` 返回 200,线上截图字体正常
+- [x] 推 main(`69bbfb7`),删掉临时分支 `render-test`
+- [x] 仓库 topics(11 个)、描述、主页地址;LICENSE 只留 MIT 正文(多一段说明时 GitHub 显示 NOASSERTION),字体许可放 `NOTICE`
 - [x] 外发前检查:黑话、自造简称、敏感词两条、本机路径,93 个文件全部 0 命中
 
 ## 阶段 4 · GitHub 主页
 
-- [ ] 生成 `profile/README.md`(图片引用 sketchbook 网页上的文件)
-- [ ] 推到 `TbusOS/TbusOS`,截图确认主页显示正常
+- [x] 生成 `profile/README.md`(图片引用 sketchbook 网页上的文件)
+- [x] 推到 `TbusOS/TbusOS`(`e03059a`),截图确认。注意:GitHub 图片代理第一次抓图可能超时、显示裂图,刷新一次就好
+
+## 待办(需要人手动,或要 user 决定)
+
+- [ ] 上传 `art/social-preview.png`:仓库 Settings → General → Social preview(GitHub 没有接口)
+- [ ] GitHub 主页置顶 6 个精选仓库(同样没有接口)
+- [ ] 6 个仓库的 homepage 填的是 `http://`:sky-skills、engram、android-llm-bridge、claude-code-memory-checkpoint、ai-doc、Helix。
+      生成时已自动改成 https,但仓库页右上角显示的还是 http,建议在各仓库设置里改掉
+- [ ] `vim-ide-enhanced` 的 homepage 填成了 CodeMetrics 的地址
+- [ ] 收录的仓库里 7 个没有许可证:ai-doc、SkymOS、openwrt-tools、memcode、mlx-pager、cursor-memory-server、whetstone-curator;
+      Helix、clangd-kernel-helper 的许可证 GitHub 认不出(NOASSERTION)。没有许可证,别人不敢拿去用
+- [ ] Actions 警告:几个官方 action 还是 Node 20(GitHub 现在强制用 Node 24 跑,结果不受影响);
+      `ubuntu-latest` 2026-10-19 起换成 Ubuntu 26。升级 action 版本前先查各自的 release 说明,别凭印象改版本号
 
 ## 下一版(v2,已和 user 约定先不做)
 
@@ -72,4 +84,5 @@ npm run build && npm run check && npm test
 
 | 日期 | 做了什么 | commit |
 |---|---|---|
-| 2026-10-10 | 阶段 0–2 全部,阶段 3 的本机部分 | (首个提交) |
+| 2026-10-10 | 阶段 0–2 全部,阶段 3 的本机部分 | `69bbfb7` |
+| 2026-10-10 | LICENSE 修正;Pages 部署权限;主页 README | `本次` / TbusOS `e03059a` |
