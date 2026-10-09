@@ -4,7 +4,7 @@
 > 写上日期和 commit。设计理由在 [`DESIGN.md`](DESIGN.md),本机环境在 [`DEVELOP.md`](DEVELOP.md)。
 >
 > 状态行(每次停下前更新):
-> **2026-10-10 05:20 · v1 已上线,分享预览图已上传**。下一步:按「待办」的顺序做;第 2 组要 user 同意才动(改的是别的仓库)
+> **2026-10-10 · v1 已上线;第 1 组(分享预览图、主页置顶)已完成**。下一步:第 2 组要 user 同意才动(改的是别的仓库)
 
 ## 怎么接着做
 
@@ -67,8 +67,8 @@ npm run build && npm run check && npm test
 
 - [x] 上传 `art/social-preview.png` 为仓库 Social preview —— 2026-10-10 user 已上传,
       接口确认 `usesCustomOpenGraphImage: true`
-- [ ] 换主页置顶:现在是 `battery-historian`(fork 自 google/battery-historian)和 `openwrt-tools`;
-      建议换成 sketchbook + 5 个精选(最多 6 个)
+- [x] 换主页置顶 —— 2026-10-10 user 已换,接口确认 6 个:ai-doc、sky-skills、android-llm-bridge、
+      engram、whetstone、sketchbook(去掉了 fork 来的 battery-historian;flowsight 因 8 个月没提交、没有在线演示没放)
 
 ### 2 · 我来做,但改的是别的仓库,先等 user 同意
 
