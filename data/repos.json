@@ -697,8 +697,20 @@
       "commits": 1,
       "language": "",
       "languageColor": "",
-      "license": "",
-      "topics": []
+      "license": "NOASSERTION",
+      "topics": [
+        "ai-agents",
+        "awesome-list",
+        "claude-code",
+        "embedded",
+        "github-pages",
+        "graphite",
+        "hand-drawn",
+        "linux-kernel",
+        "llm",
+        "open-source",
+        "portfolio"
+      ]
     },
     {
       "name": "sky-claude-cli",
