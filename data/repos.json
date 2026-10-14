@@ -693,8 +693,8 @@
       "stars": 1,
       "forks": 0,
       "created": "2026-10-09",
-      "updated": "2026-10-12",
-      "commits": 11,
+      "updated": "2026-10-13",
+      "commits": 12,
       "language": "JavaScript",
       "languageColor": "#f1e05a",
       "license": "MIT",
@@ -1173,6 +1173,23 @@
         "task-management",
         "worklog"
       ]
+    },
+    {
+      "name": "xiaobai-motion-frames",
+      "description": "AI-assisted frames. All rights reserved.",
+      "url": "https://github.com/TbusOS/xiaobai-motion-frames",
+      "homepage": "",
+      "fork": false,
+      "archived": false,
+      "stars": 0,
+      "forks": 0,
+      "created": "2026-10-13",
+      "updated": "2026-10-13",
+      "commits": 1,
+      "language": "",
+      "languageColor": "",
+      "license": "NOASSERTION",
+      "topics": []
     }
   ]
 }
